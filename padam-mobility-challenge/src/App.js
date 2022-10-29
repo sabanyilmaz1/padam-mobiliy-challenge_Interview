@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+
+import FormStop from "./components/FormStop";
 
 function App() {
   const [stops, setStops] = useState([]);
@@ -33,29 +33,15 @@ function App() {
   }, []);
 
   return (
-    <section className="App">
-      <h1>Recherche de trajets</h1>
-      <Container className="p-3">
-        <Form onSubmit={handleSubmit}>
-          <Form.Label>Liste des arrêts disponibles</Form.Label>
-          <Form.Select
-            id="selectStops"
-            className="mb-3"
-            aria-label="select stops"
-            value={selectedStop}
-            onChange={(e) => handleChange(e)}
-          >
-            <option value="default"> -- Sélectionne un arrêt --</option>
-            {stops.map((stop, index) => (
-              <option value={stop} key={index}>
-                {stop}
-              </option>
-            ))}
-          </Form.Select>
-          <Button type="submit" variant="primary">
-            Rechercher
-          </Button>
-        </Form>
+    <section className="p-5">
+      <h1 className="display-3">Recherche de trajets</h1>
+      <Container>
+        <FormStop
+          selectedStop={selectedStop}
+          stops={stops}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
       </Container>
     </section>
   );
