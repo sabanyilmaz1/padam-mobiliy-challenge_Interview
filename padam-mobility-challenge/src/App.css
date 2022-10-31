@@ -1,1 +1,26 @@
+.select-container {
+  width: 55%;
+  background-color: #babcbd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 2.5%;
+  margin-top: 2.5%;
+}
 
+.h1 {
+  width: 100%;
+}
+hr {
+  border: none;
+  border-top: 3px double black;
+  color: black;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
+
+hr:after {
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}

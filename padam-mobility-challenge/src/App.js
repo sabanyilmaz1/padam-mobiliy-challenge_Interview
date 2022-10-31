@@ -21,12 +21,15 @@ function App() {
 
   const getTripsByDepartureStop = (stop) => {
     const strStop = stop.replaceAll(" ", "%20");
-    console.log("strstop", strStop);
     fetch(
       `https://6130d11c8066ca0017fdaa97.mockapi.io/trips?departureStop=${strStop}`
     ).then((response) =>
       response.json().then((responseJSON) => setTrips(responseJSON))
     );
+  };
+
+  const bookATrip = (tripId) => {
+    return tripId;
   };
 
   const handleChange = (e) => {
@@ -46,7 +49,7 @@ function App() {
   return (
     <section className="p-5">
       <h1 className="display-3 text-center">Reservation de trajets</h1>
-      <div className="mt-4">
+      <div className="select-container">
         <FormStop
           selectedStop={selectedStop}
           stops={stops}

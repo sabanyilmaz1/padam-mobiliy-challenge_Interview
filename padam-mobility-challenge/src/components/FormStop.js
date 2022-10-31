@@ -12,7 +12,7 @@ export default function FormStop({
   return (
     <div className="w-25">
       <Form onSubmit={handleSubmit}>
-        <Form.Label>Liste des arrêts disponibles</Form.Label>
+        <Form.Label>Choissisez votre arrêt : </Form.Label>
         <Form.Select
           id="selectStops"
           className="mb-3"
