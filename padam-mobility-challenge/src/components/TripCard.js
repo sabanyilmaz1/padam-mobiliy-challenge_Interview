@@ -11,12 +11,12 @@ export default function TripCard({
   arrivalTime,
 }) {
   return (
-    <div className="m-4 bg-secondary  w-25 ">
+    <div className="m-4 bg-secondary ">
       <Card>
         <Card.Header>20 octobre 05:00 - 23 octobre 05:00</Card.Header>
         <Card.Body>
-          <Card.Title>De : Bastille</Card.Title>
-          <Card.Title>De : Bastille</Card.Title>
+          <Card.Title>DÉPART : {departureStop}</Card.Title>
+          <Card.Title>ARRIVÉE : {arrivalStop}</Card.Title>
           <Button variant="primary">Reserver</Button>
         </Card.Body>
       </Card>

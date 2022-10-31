@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import Container from "react-bootstrap/Container";
 
 import FormStop from "./components/FormStop";
 import Trips from "./components/Trips";
@@ -11,11 +10,22 @@ function App() {
   const [selectedStop, setSelectedStop] = useState(
     "-- Sélectionne un arrêt --"
   );
+  const [trips, setTrips] = useState([]);
 
   const getAllStops = () => {
     fetch("https://6130d11c8066ca0017fdaa97.mockapi.io/stops").then(
       (response) =>
         response.json().then((responseJSON) => setStops(responseJSON))
+    );
+  };
+
+  const getTripsByDepartureStop = (stop) => {
+    const strStop = stop.replaceAll(" ", "%20");
+    console.log("strstop", strStop);
+    fetch(
+      `https://6130d11c8066ca0017fdaa97.mockapi.io/trips?departureStop=${strStop}`
+    ).then((response) =>
+      response.json().then((responseJSON) => setTrips(responseJSON))
     );
   };
 
@@ -26,7 +36,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Dans le handleSubmit : ", selectedStop);
+    getTripsByDepartureStop(selectedStop);
   };
 
   useEffect(() => {
@@ -35,8 +45,8 @@ function App() {
 
   return (
     <section className="p-5">
-      <h1 className="display-3">Reservation de trajets</h1>
-      <div>
+      <h1 className="display-3 text-center">Reservation de trajets</h1>
+      <div className="mt-4">
         <FormStop
           selectedStop={selectedStop}
           stops={stops}
@@ -44,8 +54,9 @@ function App() {
           handleSubmit={handleSubmit}
         />
       </div>
+      <hr />
       <div>
-        <Trips />
+        <Trips trips={trips} />
       </div>
     </section>
   );
