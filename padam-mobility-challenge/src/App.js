@@ -4,6 +4,7 @@ import "./App.css";
 import Container from "react-bootstrap/Container";
 
 import FormStop from "./components/FormStop";
+import Trips from "./components/Trips";
 
 function App() {
   const [stops, setStops] = useState([]);
@@ -34,15 +35,18 @@ function App() {
 
   return (
     <section className="p-5">
-      <h1 className="display-3">Recherche de trajets</h1>
-      <Container>
+      <h1 className="display-3">Reservation de trajets</h1>
+      <div>
         <FormStop
           selectedStop={selectedStop}
           stops={stops}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
         />
-      </Container>
+      </div>
+      <div>
+        <Trips />
+      </div>
     </section>
   );
 }
