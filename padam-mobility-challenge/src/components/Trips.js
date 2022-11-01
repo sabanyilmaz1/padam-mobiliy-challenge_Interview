@@ -6,6 +6,7 @@ export default function Trips({ trips }) {
       {trips.map((trip) => (
         <TripCard
           key={trip.id}
+          tripId={trip.id}
           departureStop={trip.departureStop}
           arrivalStop={trip.arrivalStop}
           departureTime={trip.departureTime}

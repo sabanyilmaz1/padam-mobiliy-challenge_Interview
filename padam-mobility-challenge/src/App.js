@@ -28,10 +28,6 @@ function App() {
     );
   };
 
-  const bookATrip = (tripId) => {
-    return tripId;
-  };
-
   const handleChange = (e) => {
     setSelectedStop(e.target.value);
     console.log(e.target.value);
